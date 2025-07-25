@@ -1,10 +1,10 @@
 {
   "name": "@coohu/grok-cli",
-  "version": "0.0.15",
+  "version": "0.0.16",
   "description": "一个开源的 AI 代理，将 Grok 的强大功能直接带入您的终端。",
   "main": "dist/index.js",
   "bin": {
-    "grok-cli": "dist/index.js"
+    "grok": "dist/index.js"
   },
   "scripts": {
     "build": "tsc",
@@ -18,7 +18,8 @@
     "agent",
     "text-editor",
     "grok",
-    "ai"
+    "ai",
+    "grok-cli"
   ],
   "author": "shengsuan-cloud",
   "repository":"https://github.com/SSYCloud/grok-cli",
