@@ -11,7 +11,7 @@
 - **⚡ Bash 集成**：通过自然对话执行 shell 命令 
 - **🔧 自动工具选择**：AI 会智能地为您的请求选择合适的工具 
 - **💬 交互式 UI**：使用 Ink 构建的美观终端界面
-- **🌍 全局安装**：通过 `npm i -g @vibe-kit/grok-cli` 在任何地方安装和使用
+- **🌍 全局安装**：通过 `npm i -g @coohu/grok-cli` 在任何地方安装和使用
 
 ## 安装
 
@@ -21,12 +21,12 @@
 
 ### 全局安装 (推荐)
 ```bash
-npm install -g @vibe-kit/grok-cli
+npm install -g @coohu/grok-cli
 ```
 
 ### 本地开发
 ```bash
-git clone <repository>
+git clone https://github.com/SSYCloud/grok-cli.git
 cd grok-cli
 npm install
 npm run build

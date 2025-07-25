@@ -1,7 +1,7 @@
 {
-  "name": "@vibe-kit/grok-cli",
+  "name": "@coohu/grok-cli",
   "version": "0.0.12",
-  "description": "An open-source AI agent that brings the power of Grok directly into your terminal.",
+  "description": "一个开源的 AI 代理，将 Grok 的强大功能直接带入您的终端。",
   "main": "dist/index.js",
   "bin": {
     "grok": "dist/index.js"
@@ -20,7 +20,10 @@
     "grok",
     "ai"
   ],
-  "author": "Your Name",
+  "author": "shengsuan-cloud",
+  "repository":"https://github.com/SSYCloud/grok-cli",
+  "bugs":"https://github.com/SSYCloud/grok-cli/issues",
+  "homepage":"https://www.shengsuanyun.com",
   "license": "MIT",
   "dependencies": {
     "axios": "^1.6.0",
