@@ -14,6 +14,18 @@ import { ConfirmationService } from "./utils/confirmation-service";
 // Load environment variables
 dotenv.config();
 
+// Load package.json to get version
+function getPackageVersion(): string {
+  try {
+    const packageJsonPath = path.join(__dirname, "..", "package.json");
+    const packageJsonContent = fs.readFileSync(packageJsonPath, "utf8");
+    const packageJson = JSON.parse(packageJsonContent);
+    return packageJson.version || "0.0.0";
+  } catch (error) {
+    return "0.0.0";
+  }
+}
+
 // Ensure user .grok directory exists with default settings
 function ensureUserSettingsDirectory(): void {
   try {
@@ -285,18 +297,18 @@ async function processPromptHeadless(
 program
   .name("grok")
   .description(
-    "A conversational AI CLI tool powered by Grok with text editor capabilities"
+    "一个开源的 AI 代理，将 Grok 的强大功能直接带入您的终端。"
   )
-  .version("1.0.1")
-  .option("-d, --directory <dir>", "set working directory", process.cwd())
+  .version(getPackageVersion())
+  .option("-d, --directory <dir>", "设置工作目录", process.cwd())
   .option("-k, --api-key <key>", "Grok API key (or set GROK_API_KEY env var)")
   .option(
     "-u, --base-url <url>",
-    "Grok API base URL (or set GROK_BASE_URL env var)"
+    "Grok API URL 前缀 (或 set GROK_BASE_URL env var) 不需要包含 /chat/completions 后缀"
   )
   .option(
     "-m, --model <model>",
-    "AI model to use (e.g., gemini-2.5-pro, grok-4-latest)"
+    "AI 模型 (e.g., gemini-2.5-pro, grok-4-latest)"
   )
   .option(
     "-p, --prompt <prompt>",
