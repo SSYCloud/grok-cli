@@ -1,6 +1,6 @@
 {
   "name": "@coohu/grok-cli",
-  "version": "0.0.14",
+  "version": "0.0.15",
   "description": "一个开源的 AI 代理，将 Grok 的强大功能直接带入您的终端。",
   "main": "dist/index.js",
   "bin": {
