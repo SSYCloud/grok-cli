@@ -1,30 +1,30 @@
 # Grok CLI
 
-A conversational AI CLI tool powered by Grok with intelligent text editor capabilities and tool usage.
+一个由 Grok 驱动的会话式 AI CLI 工具，具有智能文本编辑器功能和工具使用能力 。
 
-<img width="980" height="435" alt="Screenshot 2025-07-21 at 13 35 41" src="https://github.com/user-attachments/assets/192402e3-30a8-47df-9fc8-a084c5696e78" />
+<img width="980" height="435" alt="Screenshot 2025-07-21 at 13 35 41" src="https://github.com/user-attachments/assets/192402e3-30a8-47df-9fc8-a084c5696e78  " />
 
-## Features
+## 特性
 
-- **🤖 Conversational AI**: Natural language interface powered by Grok-3
-- **📝 Smart File Operations**: AI automatically uses tools to view, create, and edit files
-- **⚡ Bash Integration**: Execute shell commands through natural conversation
-- **🔧 Automatic Tool Selection**: AI intelligently chooses the right tools for your requests
-- **💬 Interactive UI**: Beautiful terminal interface built with Ink
-- **🌍 Global Installation**: Install and use anywhere with `npm i -g @vibe-kit/grok-cli`
+- **🤖 会话式 AI**：由 Grok-3/Grok-4 提供支持的自然语言界面 
+- **📝 智能文件操作**：AI 会自动使用工具查看、创建和编辑文件 
+- **⚡ Bash 集成**：通过自然对话执行 shell 命令 
+- **🔧 自动工具选择**：AI 会智能地为您的请求选择合适的工具 
+- **💬 交互式 UI**：使用 Ink 构建的美观终端界面
+- **🌍 全局安装**：通过 `npm i -g @vibe-kit/grok-cli` 在任何地方安装和使用
 
-## Installation
+## 安装
 
-### Prerequisites
-- Node.js 16+ 
-- Grok API key from X.AI
+### 先决条件
+- Node.js 16+
+- 来自 X.AI 的 Grok API 密钥
 
-### Global Installation (Recommended)
+### 全局安装 (推荐)
 ```bash
 npm install -g @vibe-kit/grok-cli
 ```
 
-### Local Development
+### 本地开发
 ```bash
 git clone <repository>
 cd grok-cli
@@ -33,104 +33,104 @@ npm run build
 npm link
 ```
 
-## Setup
+## 设置
 
-1. Get your Grok API key from [X.AI](https://x.ai)
+1. 从 [胜算云](https://console.shengsuanyun.com/user/keys) 获取您的 Grok API 密钥
 
-2. Set up your API key (choose one method):
+2. 设置您的 API 密钥 (选择一种方法):
 
-**Method 1: Environment Variable**
+**方法 1: 环境变量**
 ```bash
 export GROK_API_KEY=your_api_key_here
 ```
 
-**Method 2: .env File**
+**方法 2: .env 文件**
 ```bash
 cp .env.example .env
-# Edit .env and add your API key
+# 编辑 .env 并添加您的 API 密钥
 ```
 
-**Method 3: Command Line Flag**
+**方法 3: 命令行标志**
 ```bash
 grok --api-key your_api_key_here
 ```
 
-**Method 4: User Settings File**
-Create `~/.grok/user-settings.json`:
+**方法 4: 用户设置文件**
+创建 `~/.grok/user-settings.json`:
 ```json
 {
   "apiKey": "your_api_key_here"
 }
 ```
 
-### Custom Base URL (Optional)
+### 自定义基础 URL (可选)
 
-You can configure a custom Grok API endpoint (choose one method):
+您可以配置自定义的 Grok API 端点 (选择一种方法):
 
-**Method 1: Environment Variable**
+**方法 1: 环境变量**
 ```bash
-export GROK_BASE_URL=https://your-custom-endpoint.com/v1
+export GROK_BASE_URL=https://your-custom-endpoint.com/v1  
 ```
 
-**Method 2: Command Line Flag**
+**方法 2: 命令行标志**
 ```bash
-grok --api-key your_api_key_here --baseurl https://your-custom-endpoint.com/v1
+grok --api-key your_api_key_here --baseurl https://your-custom-endpoint.com/v1  
 ```
 
-**Method 3: User Settings File**
-Add to `~/.grok/user-settings.json`:
+**方法 3: 用户设置文件**
+添加到 `~/.grok/user-settings.json`:
 ```json
 {
-  "apiKey": "your_api_key_here",
-  "baseURL": "https://your-custom-endpoint.com/v1"
+  "apiKey": "你的胜算云API_KEY",
+  "baseURL": "https://router.shengsuanyun.com/api/v1",
+  "model":"x-ai/grok-4"
 }
 ```
 
-## Usage
+## 使用方法
 
-### Interactive Mode
+### 交互模式
 
-Start the conversational AI assistant:
+启动会话式 AI 助手:
 ```bash
 grok
 ```
 
-Or specify a working directory:
+或者指定工作目录:
 ```bash
 grok -d /path/to/project
 ```
 
-### Headless Mode
+### 无头模式 (Headless Mode)
 
-Process a single prompt and exit (useful for scripting and automation):
+处理单个提示并退出 (适用于脚本和自动化):
 ```bash
 grok --prompt "show me the package.json file"
 grok -p "create a new file called example.js with a hello world function"
 grok --prompt "run npm test and show me the results" --directory /path/to/project
 ```
 
-This mode is particularly useful for:
-- **CI/CD pipelines**: Automate code analysis and file operations
-- **Scripting**: Integrate AI assistance into shell scripts
-- **Terminal benchmarks**: Perfect for tools like Terminal Bench that need non-interactive execution
-- **Batch processing**: Process multiple prompts programmatically
+此模式特别适用于:
+- **CI/CD 流水线**: 自动化代码分析和文件操作
+- **脚本**: 将 AI 辅助功能集成到 shell 脚本中
+- **终端基准测试**: 非常适合需要非交互式执行的 Terminal Bench 等工具
+- **批处理**: 以编程方式处理多个提示
 
-### Model Selection
+### 模型选择
 
-You can specify which AI model to use with the `--model` parameter:
+您可以使用 `--model` 参数指定要使用的 AI 模型:
 
 ```bash
-# Use Grok models
-grok --model grok-4-latest
-grok --model grok-3-latest
-grok --model grok-3-fast
+# 使用 Grok 模型
+grok --model x-ai/grok-4
+grok --model x-ai/grok-3
 
-# Use other models (with appropriate API endpoint)
-grok --model gemini-2.5-pro --base-url https://api-endpoint.com/v1
-grok --model claude-sonnet-4-20250514 --base-url https://api-endpoint.com/v1
+# 使用其他模型 (使用相应的 API 端点)
+grok --model google/gemini-2.5-pro --base-url https://api-endpoint.com/v1  
+grok --model anthropic/claude-sonnet-4 --base-url https://api-endpoint.com/v1  
 ```
 
-### Command Line Options
+### 命令行选项
 
 ```bash
 grok [options]
@@ -145,17 +145,17 @@ Options:
   -h, --help             display help for command
 ```
 
-### Custom Instructions
+### 自定义系统提示词
 
-You can provide custom instructions to tailor Grok's behavior to your project by creating a `.grok/GROK.md` file in your project directory:
+您可以通过在项目目录中创建 `.grok/GROK.md` 文件来提供自定义系统提示词，以调整 Grok 的行为:
 
 ```bash
 mkdir .grok
 ```
 
-Create `.grok/GROK.md` with your custom instructions:
+创建 `.grok/GROK.md` 并写入您的自定义系统提示词:
 ```markdown
-# Custom Instructions for Grok CLI
+# Grok CLI 的自定义系统提示词
 
 Always use TypeScript for any new code files.
 When creating React components, use functional components with hooks.
@@ -164,11 +164,11 @@ Always add JSDoc comments for public functions and interfaces.
 Follow the existing code style and patterns in this project.
 ```
 
-Grok will automatically load and follow these instructions when working in your project directory. The custom instructions are added to Grok's system prompt and take priority over default behavior.
+Grok 会在您项目目录中工作时自动加载并遵循这些系统提示词。自定义系统提示词会被添加到 Grok 的系统提示中，并优先于默认行为。
 
-## Example Conversations
+## 示例对话
 
-Instead of typing commands, just tell Grok what you want to do:
+无需输入命令，只需告诉 Grok 您想做什么:
 
 ```
 💬 "Show me the contents of package.json"
@@ -179,32 +179,32 @@ Instead of typing commands, just tell Grok what you want to do:
 💬 "What's the current directory structure?"
 ```
 
-## Development
+## 开发
 
 ```bash
-# Install dependencies
+# 安装依赖
 npm install
 
-# Development mode
+# 开发模式
 npm run dev
 
-# Build project
+# 构建项目
 npm run build
 
-# Run linter
+# 运行 linter
 npm run lint
 
-# Type check
+# 类型检查
 npm run typecheck
 ```
 
-## Architecture
+## 架构
 
-- **Agent**: Core command processing and execution logic
-- **Tools**: Text editor and bash tool implementations
-- **UI**: Ink-based terminal interface components
-- **Types**: TypeScript definitions for the entire system
+- **Agent**: 核心命令处理和执行逻辑
+- **Tools**: 文本编辑器和 bash 工具的实现
+- **UI**: 基于 Ink 的终端界面组件
+- **Types**: 整个系统的 TypeScript 定义
 
-## License
+## 许可证
 
 MIT

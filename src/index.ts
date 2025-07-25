@@ -60,6 +60,27 @@ function loadBaseURL(): string | undefined {
   return baseURL;
 }
 
+function loadModel():string | undefined {
+  // First check environment variables
+  let model = process.env.MODEL;
+
+  if (!model) {
+    // Try to load from user settings file
+    try {
+      const homeDir = os.homedir();
+      const settingsFile = path.join(homeDir, ".grok", "user-settings.json");
+
+      if (fs.existsSync(settingsFile)) {
+        const settings = JSON.parse(fs.readFileSync(settingsFile, "utf8"));
+        model = settings.model;
+      }
+    } catch (error) {
+      // Ignore errors, model will remain undefined
+    }
+  }
+  return model;
+}
+
 // Headless mode processing function
 async function processPromptHeadless(
   prompt: string,
@@ -164,7 +185,7 @@ program
       // Get API key from options, environment, or user settings
       const apiKey = options.apiKey || loadApiKey();
       const baseURL = options.baseUrl || loadBaseURL();
-      const model = options.model;
+      const model = options.model || loadModel();
 
       if (!apiKey) {
         console.error(
